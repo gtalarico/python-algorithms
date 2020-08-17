@@ -3,10 +3,6 @@
 ### Motivation
 TODO
 
-### TODO
-- [ ] Store "Frames" and render after instead of rendering while running
-- [ ] Test on Balanced Bracket
-
 ### Usage
 
 ```
@@ -17,7 +13,8 @@ $ python -m algos sort selection --speed 0.2 --height 10 --width 10
 
 ### [Sorting](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)
 
-- [ ] Bubble Sort
+- [X] Bubble Sort
+- [X] Selection Sort
 - [ ] Heap Sort
 - [ ] Quick Sort
 - [ ] Merge Sort

@@ -15,6 +15,6 @@ from algos import problems
         ("([)]", False),
     ],
 )
-def test_balanced_brackets(string, expected):
-    solver = problems.BalancedBracked(render=False)
-    assert solver.sort(string) is expected
+def test_balanced_brackets(string, expected, mock_renderer):
+    solver = problems.BalancedBracked(no_render=True, speed=0.001)
+    assert solver.run(string) is expected

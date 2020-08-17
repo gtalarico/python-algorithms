@@ -1,8 +1,8 @@
 from typing import List
-from algos.renderer import Rendererable
+import time
 
 
-class Bubble(Rendererable):
+class Bubble:
     """
     Bubble
 
@@ -13,6 +13,12 @@ class Bubble(Rendererable):
     https://www.youtube.com/watch?v=xWBP4lzkoyM&feature=emb_title
     """
 
+    DEFAULT_FRAME_SPEED = 0.1
+
+    def __init__(self, renderer, speed=None):
+        self.renderer = renderer
+        self.frame_speed = speed if speed is not None else self.DEFAULT_FRAME_SPEED
+
     def sort(self, arr: List[int]) -> List[int]:
         n = len(arr)
         for i in range(n - 1):
@@ -21,39 +27,42 @@ class Bubble(Rendererable):
                 if arr[j] > arr[j + 1]:
                     arr[j], arr[j + 1] = arr[j + 1], arr[j]
                     swapped = True
-                    self.render(arr, i, j, swapped=True)
+                    self.render_frame(arr, i, j, swapped=True)
                 else:
-                    self.render(arr, i, j, swapped=False)
+                    self.render_frame(arr, i, j, swapped=False)
             if not swapped:
                 break
-        self.render(arr, i, j, done=True)
+        self.render_frame(arr, i, j, done=True)
         return arr
 
-    def render(self, arr, i, j, swapped=False, done=False):
-        self.wait()
+    def render_frame(self, arr, i, j, swapped=False, done=False):
+        time.sleep(self.frame_speed)
 
         for n, value in enumerate(arr):
             bar = f"\t{value * '▆'}"
+            with self.renderer.term.location(x=0, y=n):
+                print(self.renderer.term.clear_eol())
 
-            with self.term.location(x=0, y=n):
-                print(self.term.clear_eol())
-
-            with self.term.location(x=0, y=n):
+            with self.renderer.term.location(x=0, y=n):
                 if done:
-                    print(self.term.green(f"✓{bar}"))
+                    print(self.renderer.term.green(f"✓{bar}"))
                 elif swapped and n == j:
-                    print(self.term.bold_red(f"j{bar}"))
+                    print(self.renderer.term.bold_red(f"j{bar}"))
                 elif swapped and n == j + 1:
-                    print(self.term.bold_blue(f"▲{bar}"))
+                    print(self.renderer.term.bold_blue(f"▲{bar}"))
                 elif n == j:
-                    print(self.term.bold_blue(f"j{bar}"))
+                    print(self.renderer.term.bold_blue(f"j{bar}"))
                 elif n == i:
-                    print(self.term.green(f"i{bar}"))
+                    print(self.renderer.term.green(f"i{bar}"))
                 elif n <= i:
-                    print(self.term.green(f"{bar}"))
+                    print(self.renderer.term.green(f"{bar}"))
                 else:
-                    print(self.term.bold_white(f"{bar}"))
+                    print(self.renderer.term.bold_white(f"{bar}"))
 
-        with self.term.location(y=len(arr), x=0):
-            print(self.term.clear_eos())
-            print(self.term.bright_black(f"Bubble Sort (i={i} swapped={swapped})"))
+        with self.renderer.term.location(y=len(arr), x=0):
+            print(self.renderer.term.clear_eos())
+            print(
+                self.renderer.term.bright_black(
+                    f"Bubble Sort (i={i} swapped={swapped})"
+                )
+            )
