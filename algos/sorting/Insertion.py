@@ -58,9 +58,9 @@ class Insertion:
                 if done:
                     print(self.renderer.term.green(f"✓{bar}"))
                 elif swapped and n == subkey:
-                    print(self.renderer.term.bold_red(f" {bar}"))
+                    print(self.renderer.term.bold_yellow(f" {bar}"))
                 elif not swapped and n == subkey:
-                    print(self.renderer.term.bold_blue(f" {bar}"))
+                    print(self.renderer.term.bold_red(f" {bar}"))
                 elif n < key:
                     print(self.renderer.term.green(f"✓{bar}"))
                 elif n == i:
