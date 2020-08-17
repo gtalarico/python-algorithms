@@ -5,7 +5,9 @@ import click
 from . import sorting, problems, utils
 from .renderer import ConsoleRenderer
 
-sort_functions = dict(selection=sorting.Selection, bubble=sorting.Bubble)
+sort_functions = dict(
+    selection=sorting.Selection, bubble=sorting.Bubble, insertion=sorting.Insertion
+)
 
 
 @click.group()
