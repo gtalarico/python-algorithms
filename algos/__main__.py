@@ -3,8 +3,11 @@ x
 """
 import click
 from . import sorting, problems, utils
+from .renderer import ConsoleRenderer
 
-sort_functions = dict(selection=sorting.Selection, bubble=sorting.Bubble)
+sort_functions = dict(
+    selection=sorting.Selection, bubble=sorting.Bubble, insertion=sorting.Insertion
+)
 
 
 @click.group()
@@ -20,11 +23,12 @@ def cli():
 def cmd_sort(algorithm_name, width, height, speed):
     """Render Sorting Algorithms"""
     SorterCls = sort_functions[algorithm_name]
-    sorter = SorterCls(render=True, speed=speed)
-    width = width or int(sorter.term.width / 2)
-    height = height or int(sorter.term.height - 4)
-    arr = utils.random_array(size=height, lower=1, upper=width)
-    sorter.animate(arr)
+    with ConsoleRenderer() as renderer:
+        sorter = SorterCls(renderer=renderer, speed=speed)
+        width = width or int(renderer.term.width / 2)
+        height = height or int(renderer.term.height - 4)
+        arr = utils.random_array(size=height, lower=1, upper=width)
+        sorter.sort(arr)
 
 
 @cli.command(name="brackets")
@@ -34,10 +38,12 @@ def cmd_sort(algorithm_name, width, height, speed):
 @click.option("--speed", default=None, help="Frame Speed", type=click.FLOAT)
 def cmd_brackets(brackets, width, height, speed):
     """Render Sorting Algorithms"""
-    solver = problems.BalancedBracked(render=True, speed=speed)
-    width = width or solver.term.width / 2
-    height = height or solver.term.height - 4
-    solver.animate(brackets)
+
+    with ConsoleRenderer() as renderer:
+        solver = problems.BalancedBracked(renderer=renderer, speed=speed)
+        width = width or renderer.term.width / 2
+        height = height or renderer.term.height - 4
+        solver.run(brackets)
 
 
 if __name__ == "__main__":

@@ -25,5 +25,5 @@
     "**/*.pytest_cache": true,
     "**/*.coverage": true
   },
-  "python.pythonPath": "/Users/gtalarico/dev/repos/gtalarico/python-algorithms/.venv/bin/python3",
+  "python.pythonPath": ".venv/bin/python",
 }
