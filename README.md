@@ -38,7 +38,7 @@ $ python -m algos brackets "((((((())[])))"
 
 ### Others
 - [X] Brackets
-- [ ] Brackets
+- [ ] Land & River
 
 
 ### Resources
