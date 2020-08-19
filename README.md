@@ -23,6 +23,19 @@ $ python -m algos brackets "((((((())[])))"
 - [ ] Quick Sort
 - [ ] Bucket Sort
 
+
+#### Screenshots
+
+##### Bubble
+![bubble](/gifs/sort_bubble.gif)
+##### Selection
+![selection](/gifs/sort_selection.gif)
+##### Insertion
+![insertion](/gifs/sort_insertion.gif)
+##### Merge Sort
+![merge](/gifs/sort_merge.gif)
+
+
 ### Others
 - [X] Brackets
 - [ ] Brackets
