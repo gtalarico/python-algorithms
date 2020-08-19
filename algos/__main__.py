@@ -6,7 +6,10 @@ from . import sorting, problems, utils
 from .renderer import ConsoleRenderer
 
 sort_functions = dict(
-    selection=sorting.Selection, bubble=sorting.Bubble, insertion=sorting.Insertion
+    selection=sorting.Selection,
+    bubble=sorting.Bubble,
+    insertion=sorting.Insertion,
+    merge=sorting.MergeSort,
 )
 
 

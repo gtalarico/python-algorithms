@@ -16,5 +16,5 @@ from algos import problems
     ],
 )
 def test_balanced_brackets(string, expected, mock_renderer):
-    solver = problems.BalancedBracked(no_render=True, speed=0.001)
+    solver = problems.BalancedBracked(renderer=mock_renderer, speed=0.001)
     assert solver.run(string) is expected

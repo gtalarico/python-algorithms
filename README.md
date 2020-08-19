@@ -17,11 +17,11 @@ $ python -m algos brackets "((((((())[])))"
 
 - [X] Bubble Sort
 - [X] Selection Sort
+- [X] Insertion Sort
+- [X] Merge Sort
 - [ ] Heap Sort
 - [ ] Quick Sort
-- [ ] Merge Sort
 - [ ] Bucket Sort
-- [ ] Insertion Sort
 
 ### Others
 - [X] Brackets
