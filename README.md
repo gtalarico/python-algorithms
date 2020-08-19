@@ -1,7 +1,8 @@
 # Python Algorithms
 
 ### Motivation
-TODO
+* Practice Algorithms
+* It's more fun when you can see them
 
 ### Usage
 
@@ -9,6 +10,7 @@ TODO
 $ python -m algos --help
 $ python -m algos sort bubble
 $ python -m algos sort selection --speed 0.2 --height 10 --width 10
+$ python -m algos brackets "((((((())[])))"
 ```
 
 ### [Sorting](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)
@@ -20,6 +22,11 @@ $ python -m algos sort selection --speed 0.2 --height 10 --width 10
 - [ ] Merge Sort
 - [ ] Bucket Sort
 - [ ] Insertion Sort
+
+### Others
+- [X] Brackets
+- [ ] Brackets
+
 
 ### Resources
 
