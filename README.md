@@ -1,4 +1,4 @@
-# Python Algorithms
+# Python Visual Algorithms
 
 ### Motivation
 * Practice Algorithms
